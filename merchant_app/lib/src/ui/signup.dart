@@ -1,16 +1,19 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:merchant_app/src/bloc/signUpBloc.dart';
 import 'package:merchant_app/src/ui/homePage.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class SignupPage extends StatefulWidget {
+class Signup extends StatefulWidget {
+  final SignupBloc signupBloc;
+  Signup({@required this.signupBloc});
   @override
-  _SignupPageState createState() => _SignupPageState();
+  _SignupState createState() => _SignupState();
 }
 
 enum SingingCharacter { Online, Offline }
 
-class _SignupPageState extends State<SignupPage> {
+class _SignupState extends State<Signup> {
   final firstNameController = new TextEditingController();
   final lastNameController = new TextEditingController();
   final mobileController = new TextEditingController();
@@ -18,6 +21,7 @@ class _SignupPageState extends State<SignupPage> {
   final pinController = new TextEditingController();
   final outletNameController = new TextEditingController();
   final outletAddressController = new TextEditingController();
+  SignupBloc bloc;
   // final pinController = new TextEditingController()
   static String patttern = r'(^(?:[+0]9)?[0-9]{10,12}$)';
   // List<DropdownMenuItem<String>> countryName = [
@@ -25,14 +29,22 @@ class _SignupPageState extends State<SignupPage> {
   //   DropdownMenuItem(child: Text("India")),
   //   DropdownMenuItem(child: Text("USA"))
   // ];
-  // List<DropdownMenuItem<String>> cityName = [
-  //   DropdownMenuItem(child: Text("Select One")),
-  //   DropdownMenuItem(child: Text("Mumbai")),
-  //   DropdownMenuItem(child: Text("Navi Mumbai"))
-  // ];
   SingingCharacter _character = SingingCharacter.Online;
   String selectedCity = "Select One";
   String selectedCountry = "Select One";
+  @override
+  void initState() {
+    bloc = widget.signupBloc;
+    firstNameController.addListener(firstNameValueListener);
+    // otpController.addListener();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    firstNameController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +75,7 @@ class _SignupPageState extends State<SignupPage> {
         children: [
           _label(),
           SizedBox(height: 24),
-          _fName(),
+          _fName(bloc),
           SizedBox(height: 24),
           _lName(),
           SizedBox(height: 24),
@@ -101,37 +113,41 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 
-  Widget _fName() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text("First Name"),
-        Padding(
-          padding: const EdgeInsets.only(top: 12),
-          child: Container(
-            decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(6)),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: TextFormField(
-                keyboardType: TextInputType.name,
-                decoration: _decoration(),
-                controller: firstNameController,
-                validator: (text) {
-                  if (text == null || text.isEmpty) {
-                    return 'Text is empty';
-                  }
-                  return text;
-                },
-                onChanged: (name) {
-                  print(name);
-                },
+  Widget _fName(SignupBloc bloc) {
+    return StreamBuilder(
+      stream: bloc.userFName,
+      builder: (context, AsyncSnapshot<String> snapShot) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Fist Name"),
+            Padding(
+              padding: const EdgeInsets.only(top: 12),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: firstNameController.text.isNotEmpty &&
+                        snapShot.hasError == true
+                    ? 70
+                    : 50,
+                decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(6)),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: TextFormField(
+                    decoration: _decoration(),
+                    keyboardType: TextInputType.name,
+                    controller: firstNameController,
+                    onChanged: (name) {
+                      print(name);
+                    },
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-      ],
+          ],
+        );
+      },
     );
   }
 
@@ -548,34 +564,30 @@ class _SignupPageState extends State<SignupPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           InkWell(
-            child: Center(
-              child: RichText(
-                  text: TextSpan(
-                      text: "Aleady have an account? ",
-                      style: TextStyle(color: Colors.black),
-                      children: <TextSpan>[
-                    TextSpan(
-                        text: ' Login here',
-                        style: TextStyle(color: Hexcolor("#FF7E55")),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Homepage()));
-                          })
-                  ])
-
-                  // style: TextStyle(color: Hexcolor("#FF7E55")),
-                  ),
-            ),
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Homepage()));
-            },
-          ),
+              child: Center(
+            child: RichText(
+                text: TextSpan(
+                    text: "Aleady have an account? ",
+                    style: TextStyle(color: Colors.black),
+                    children: <TextSpan>[
+                  TextSpan(
+                      text: ' Login here',
+                      style: TextStyle(color: Hexcolor("#FF7E55")),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Homepage()));
+                        })
+                ])),
+          ))
         ],
       ),
     );
+  }
+
+  firstNameValueListener() {
+    bloc.firstName(firstNameController.text);
   }
 }

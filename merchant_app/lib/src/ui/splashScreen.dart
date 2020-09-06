@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:merchant_app/src/bloc/signUpBloc.dart';
 import 'package:merchant_app/src/ui/signup.dart';
 // import 'home.dart';
 
@@ -15,7 +16,8 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         Duration(seconds: 4),
         () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => SignupPage())));
+            builder: (BuildContext context) =>
+                Signup(signupBloc: SignupBloc()))));
   }
 
   @override
