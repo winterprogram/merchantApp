@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-09-12T15:31:04.557Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" etag="sED8YUntYcFhaae9J_nA" version="13.6.10" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2020-09-12T15:33:18.229Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" etag="r_PDCpnW79aCDBAParsy" version="13.6.10" type="github" pages="2">
   <diagram id="XHnnHnTW0IW_jZNLsM0W" name="Server Arch (overview)">
     <mxGraphModel dx="946" dy="1815" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -51,7 +51,7 @@
         <mxCell id="9Z9ePnhwufvTvXGYZ8UG-18" value="Node.js&lt;br&gt;" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.android;fillColor=#8CC64F;gradientColor=none;" parent="9Z9ePnhwufvTvXGYZ8UG-1" vertex="1">
           <mxGeometry x="359" y="-10" width="35.5" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="OB3bPqVadR0CDucWqpQf-0" value="MongoDb&lt;br&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="9Z9ePnhwufvTvXGYZ8UG-1">
+        <mxCell id="OB3bPqVadR0CDucWqpQf-0" value="MongoDB&lt;br&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="9Z9ePnhwufvTvXGYZ8UG-1">
           <mxGeometry x="510" y="301" width="60" height="80" as="geometry" />
         </mxCell>
         <mxCell id="OB3bPqVadR0CDucWqpQf-1" value="" style="endArrow=classic;startArrow=classic;html=1;entryX=0.145;entryY=0;entryDx=0;entryDy=4.35;entryPerimeter=0;" edge="1" parent="9Z9ePnhwufvTvXGYZ8UG-1" source="9Z9ePnhwufvTvXGYZ8UG-7" target="OB3bPqVadR0CDucWqpQf-0">
@@ -59,6 +59,14 @@
             <mxPoint x="390" y="280" as="sourcePoint" />
             <mxPoint x="440" y="230" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="OB3bPqVadR0CDucWqpQf-3" value="Aggrigate" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="OB3bPqVadR0CDucWqpQf-1">
+          <mxGeometry x="0.1397" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OB3bPqVadR0CDucWqpQf-4" value="Transactional Data" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="9Z9ePnhwufvTvXGYZ8UG-1">
+          <mxGeometry x="488.25" y="381" width="120" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
