@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-09-12T15:33:18.229Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" etag="r_PDCpnW79aCDBAParsy" version="13.6.10" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2020-09-12T15:33:32.145Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36" etag="_ufoWs2VWJ2w5mKq6o7j" version="13.6.10" type="github" pages="2">
   <diagram id="XHnnHnTW0IW_jZNLsM0W" name="Server Arch (overview)">
     <mxGraphModel dx="946" dy="1815" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -35,12 +35,6 @@
         </mxCell>
         <mxCell id="9Z9ePnhwufvTvXGYZ8UG-8" value="Dynamo Db" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.dynamo_db;fillColor=#2E73B8;gradientColor=none;" parent="9Z9ePnhwufvTvXGYZ8UG-1" vertex="1">
           <mxGeometry x="360" y="300" width="72" height="81" as="geometry" />
-        </mxCell>
-        <mxCell id="9Z9ePnhwufvTvXGYZ8UG-9" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="9Z9ePnhwufvTvXGYZ8UG-1" source="9Z9ePnhwufvTvXGYZ8UG-6" target="9Z9ePnhwufvTvXGYZ8UG-7" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="240" y="190" as="sourcePoint" />
-            <mxPoint x="290" y="140" as="targetPoint" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="9Z9ePnhwufvTvXGYZ8UG-15" value="SNS" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.sns;fillColor=#D9A741;gradientColor=none;" parent="9Z9ePnhwufvTvXGYZ8UG-1" vertex="1">
           <mxGeometry x="510" y="124" width="76.5" height="76.5" as="geometry" />
